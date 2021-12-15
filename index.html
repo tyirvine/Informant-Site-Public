@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+
+        <!-- Page title and Favicon -->
+        <title>Informant for macOS</title>
+        <link rel="icon" type="image/png" href="assets/icons/informant-favicon.png" />
+
+        <!-- Scripts -->
+        <script src="./scripts/smooth-scroll.js"></script>
+        <script src="./scripts/smooth-scroll-commands.js"></script>
+
+        <!-- Primary Meta Tags -->
+        <title>Informant for macOS</title>
+        <meta name="title" content="Informant - A file inspector for macOS">
+        <meta name="description" content="Informant is an open source, free to use, file inspector for macOS that lives in the menu bar. Inspect files with a single click.">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://informant-app.com/">
+        <meta property="og:title" content="Informant for macOS">
+        <meta property="og:description" content="Inspect files on macOS with a single click.">
+        <meta property="og:image" content="https://informant-app.com/assets/metaimage.png">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://informant-app.com/">
+        <meta property="twitter:title" content="Informant for macOS">
+        <meta property="twitter:description" content="Inspect files on macOS with a single click.">
+        <meta property="twitter:image" content="https://informant-app.com/assets/metaimage.png">
+    </head>
+
+    <body>
+
+        <!-- Used to setup downloads -->
+        <iframe id="invisible" style="display:none;"></iframe>
+
+        <!-- This is the sticky bar that moves with a scroll -->
+        <div id="sticky-bar">
+            <div id="sticky-bar-content">
+                <div class="backdrop"></div>
+                <div class="foreground">
+                    <div id="sticky-bar-squeezer">
+                        <a id="sticky-bar-home" href="javascript:;" onclick="return scrollToTop();">
+                            <img src="./assets/app-icon.png" width="50px" height="50px">
+                            <h4>Informant</h4>
+                        </a>
+
+                        <div id="sticky-bar-links">
+
+                            <!-- Feedback Sticky Link -->
+                            <a href="https://github.com/tyirvine/Informant#feedback" target="_blank">Feedback</a>
+                            <div class="padding"></div>
+
+                            <!-- Download Sticky Link -->
+                            <a href="https://github.com/tyirvine/Informant/releases/latest/download/Informant.zip">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="main-padding">
+            <!-- Contains all content including footer -->
+            <div class="main">
+
+                <!-- ----------------------------------------------------------------------- -->
+                <!--                                Section 1                                -->
+                <!-- ----------------------------------------------------------------------- -->
+                <div id="section-1" class="section-alignment">
+
+                    <!-- Top content -->
+                    <img id="informant-icon" src="./assets/app-icon.png">
+                    <h2 id="landing-header">Inspect files with a single click.</h2>
+                    <div class="padding"></div>
+                    <video class="video" id="opening-video" width="100%" autoplay muted playsinline>
+                        <source src="assets/content/Informant-Opening-Video-Expanded.mp4" type="video/mp4">
+                    </video>
+                    <div class="padding-semi-large"></div>
+
+                    <!-- -------------------------- App store buttons -------------------------- -->
+
+                    <div class="notice-outer">
+                        <!-- Notice -->
+                        <h4 class="notice-label">Informant is undergoing big changes ⚠️</h4>
+
+                        <!-- Text -->
+                        <p class="notice-descriptor">Because of this it is not available at this time. But it will be ready soon so stay tuned for updates!</p>
+                    </div>
+
+                    <!-- --------------------- -->
+                </div>
+
+                <div class="padding-large"></div>
+                <div class="padding-large"></div>
+                <div class="padding-small"></div>
+
+                <!-- ----------------------------------------------------------------------- -->
+                <!--                                Section 2                                -->
+                <!-- ----------------------------------------------------------------------- -->
+                <div id="section-2">
+
+                    <!-- Inspection panel -->
+                    <div class="blurb">
+                        <h3>Inspection panel</h3>
+                        <div class="padding-small"></div>
+                        <span id="emoji-magnifying-glass" class="emoji">🔍</span>
+                    </div>
+                    <p>If you want additional details about a file, simply click Informant in the menu bar to open the
+                        details panel.</p>
+                    <div class="center-image">
+                        <img id="inspection-panel-image" src="assets/content/Informant-Inspector-Panel.png">
+                    </div>
+
+                    <div class="padding-blurb"></div>
+
+                    <!-- Key support -->
+                    <div class="blurb">
+                        <h3>Key support</h3>
+                        <div class="padding-small"></div>
+                        <span id="emoji-keyboard" class="emoji">⌨️</span>
+                    </div>
+                    <p>Informant knows when you select a file with an arrow key or when you make a selection using <span class="technical-info"><span class="glyph">⌘</span> + a</span>.</p>
+                    <div class="center-image">
+                        <video id="key-support-video" autoplay loop muted playsinline>
+                            <!-- TODO: I need to add .ogg files here -->
+                            <source src="assets/content/Informant-Key-Support.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="padding-blurb"></div>
+
+                </div>
+
+                <hr>
+
+                <!-- ----------------------------------------------------------------------- -->
+                <!--                                Section 3                                -->
+                <!-- ----------------------------------------------------------------------- -->
+                <div id="faq">
+
+                    <!-- FAQ -->
+                    <h2>Frequently asked questions</h2>
+
+                    <div class="padding"></div>
+
+                    <!-- Question 1 -->
+                    <div class="padding-faq-block">
+                        <h4>Why is some file information unavailable?</h4>
+                        <p>
+                            There are some files that Informant simply cannot read because of macOS security protocols.
+                            For example, Informant cannot read iCloud Synchronization Files - <span class="technical-info">.icloud</span>.
+                            <span class="line-break"></span><br>
+                            However, if it's a file with a normal extension, and it's not stored in a Network volume then you may need to authorize Informant ⤵︎
+                        </p>
+                        <ol>
+                            <li>Open System Preferences and select <span class="technical-info">Security & Privacy</span>.</li>
+                            <li>Select the <span class="technical-info">Privacy</span> tab.</li>
+                            <li>Scroll through the list on the left and select <span class="technical-info">Accessibility</span>.</li>
+                            <li>Unlock your settings by clicking on the lock in the bottom left corner and following the instructions.</li>
+                            <li>In the list on the right check Informant.</li>
+                            <li>Then scroll through the list on the left and select <span class="technical-info">Automation</span>.</li>
+                            <li>In the list on the right, underneath Informant, check 'Finder'.</li>
+                        </ol>
+                        <p>
+                            After authorizing, you may need to quit Informant and re-open it.
+                        </p>
+                    </div>
+
+                    <!-- Localization Question -->
+                    <div class="padding-faq-block">
+                        <h4>Is Informant localized?</h4>
+                        <p>Yes! However, it uses Microsoft Azure for translations so they may not be 100% accurate. If you've found a translation that you think is incorrect, please <a href="https://github.com/tyirvine/Informant#feedback" class="inline-link" target="_blank">submit feedback</a>.</p>
+                    </div>
+
+                    <!-- File explorer Question -->
+                    <div class="padding-faq-block">
+                        <h4>Does Informant support other file explorers like Pathfinder?</h4>
+                        <p>No, Informant only supports Finder. It can't detect files selected in any other application.</p>
+                    </div>
+
+                    <!-- Compatibility Question -->
+                    <div class="padding-faq-block">
+                        <h4>Compatibility</h4>
+                        <p>Informant runs on macOS 11.0 or later. It is not supported on Windows or Linux.</p>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="padding-faq-block" id="privacy">
+                        <h4>What's Informant's Privacy Policy?</h4>
+                        <p>We do not collect any personal data, period.</p>
+                    </div>
+
+                    <!-- Extra padding -->
+                    <div class="padding-faq-block"></div>
+
+                    <!-- Still have questions? -->
+                    <div class="padding-faq-block">
+                        <h2 class="contact-us">Still have questions? <a href="mailto: help@informant-app.com" class="link">Contact us</a>. Got some feedback for Informant? We're all ears! Come <a href="https://github.com/tyirvine/Informant#feedback" class="link" target="_blank">share it with us</a> over on Github.
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="padding-faq-block"></div>
+                <div class="padding-faq-block"></div>
+
+                <!-- Footer -->
+                <div id="footer">
+
+                    <hr id="footer-rule" class="remove-bottom-margin">
+
+                    <!-- Contains icons, and text -->
+                    <div id="footer-content">
+
+                        <!-- Social icons -->
+                        <div class="footer-icons">
+                            <!-- Github -->
+                            <a class="button-icon" href="https://github.com/tyirvine" target="_blank">
+                                <img class="icon-footer" src="./assets/icons/icons8-octocat.svg">
+                            </a>
+
+                            <!-- Twitter -->
+                            <a class="button-icon" href="https://twitter.com/_tyirvine" target="_blank">
+                                <img class="icon-footer" src="./assets/icons/icons8-twitter.svg">
+                            </a>
+                        </div>
+
+                        <!-- Created by... -->
+                        <p class="footer-font">Created by Ty Irvine</p>
+
+                        <!-- Copyright -->
+                        <p class="footer-font">©2021</p>
+                    </div>
+                </div>
+
+                <!-- Bottom padding -->
+                <div class="padding-bottom"></div>
+            </div>
+        </div>
+
+        <!-- --------------- Scripts that run after the window loads --------------- -->
+        <script src="scripts/auto-play-with-delay.js"></script>
+
+    </body>
+
+</html>
